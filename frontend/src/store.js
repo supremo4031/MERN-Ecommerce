@@ -1,10 +1,33 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { productCreateReducer, productDeleteReducer, productDetailsReducer, productListReducer, productUpdateReducer } from './reducers/productReducers.js'
+import {
+	productCreateReducer,
+	productCreateReviewReducer,
+	productDeleteReducer,
+	productDetailsReducer,
+	productListReducer,
+	productTopRatedReducer,
+	productUpdateReducer,
+} from './reducers/productReducers.js'
 import { cartReducer } from './reducers/cartReducers.js'
-import { userDeleteReducer, userDetailsReducer, userListReducer, userLoginReducer, userRegisterReducer, userUpdateProfileReducer, userUpdateReducer } from './reducers/userReducers.js'
-import { allOrderListReducer, myOrderListReducer, orderCreateReducer, orderDeliverReducer, orderDetailsReducer, orderPayReducer } from './reducers/orderReducer.js'
+import {
+	userDeleteReducer,
+	userDetailsReducer,
+	userListReducer,
+	userLoginReducer,
+	userRegisterReducer,
+	userUpdateProfileReducer,
+	userUpdateReducer,
+} from './reducers/userReducers.js'
+import {
+	allOrderListReducer,
+	myOrderListReducer,
+	orderCreateReducer,
+	orderDeliverReducer,
+	orderDetailsReducer,
+	orderPayReducer,
+} from './reducers/orderReducer.js'
 
 const reducer = combineReducers({
 	cart: cartReducer,
@@ -13,6 +36,8 @@ const reducer = combineReducers({
 	productCreate: productCreateReducer,
 	productDelete: productDeleteReducer,
 	productUpdate: productUpdateReducer,
+	productCreateReview: productCreateReviewReducer,
+	productTopRated: productTopRatedReducer,
 	userLogin: userLoginReducer,
 	userRegister: userRegisterReducer,
 	userDetails: userDetailsReducer,
@@ -43,7 +68,7 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress')
 const initialState = {
 	cart: {
 		cartItems: cartItemsFromStorage,
-		shippingAddress: shippingAddressFromStorage
+		shippingAddress: shippingAddressFromStorage,
 	},
 	userLogin: {
 		userInfo: userInfoFromStorage,

@@ -1,11 +1,21 @@
 import mongoose from 'mongoose'
 import { reqDefNum, reqNum, reqString } from './types.js'
 
-const reviewSchema = mongoose.Schema({
-    name: reqString,
-    rating: reqNum,
-    comment: reqString,
-})
+const reviewSchema = mongoose.Schema(
+	{
+		name: reqString,
+		rating: reqNum,
+		comment: reqString,
+		user: {
+			type: mongoose.Schema.Types.ObjectId,
+			required: true,
+			ref: 'User',
+		},
+	},
+	{
+		timestamps: true,
+	}
+)
 
 const productSchema = mongoose.Schema(
 	{
