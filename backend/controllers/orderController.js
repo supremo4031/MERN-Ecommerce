@@ -65,7 +65,6 @@ export const updateOrderToPaid = asyncHandler(async (req, res) => {
 			status,
 			update_time,
 			email_address: payer.email_address
-
 		}
 
 		const updatedOrder = await order.save()
