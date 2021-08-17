@@ -1,7 +1,5 @@
 import asyncHandler from 'express-async-handler'
-import Category from '../models/categoryModel.js'
 import Inventory from '../models/inventoryModel.js'
-import ErrorResponse from '../utils/ErrorResponse.js'
 
 // @desc    Fetch inventory by seller id
 // @route   GET /api/inventory/seller/:id
